@@ -55,7 +55,7 @@ public class Main {
     private static void simulateRace() {
 
         for (int round=0; round < 50; round++) {
-            boolean roundBreakdown = probabilityOfBreakdown();
+
             boolean roundRaining = probabilityOfRain();
             for (Car racingCar : createdCars ) {
                 if (roundRaining) {
@@ -77,6 +77,7 @@ public class Main {
             }
 
             for (Truck racingTruck: createdTrucks) {
+                boolean roundBreakdown = probabilityOfBreakdown();
                 if (roundBreakdown) {
                     racingTruck.setBreakdownTurnsLeft(2);
                 } else {
