@@ -1,9 +1,52 @@
 package com.company;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Truck {
-    /*// speed: 100km/h. 5% chance of breaking down for 2 hours.
-    // Truck drivers are boring. They call all their trucks a random number between 0 and 1000.
-    breakdownTurnsLeft // holds how long its still broken down.
-            distanceTraveled
-    moveForAnHour()*/
+    private int speed;
+    private int breakdownTurnsLeft;
+    private int distanceTraveled;
+    private String name;
+    private String type;
+
+
+    public Truck() {
+        this.name = "" + ThreadLocalRandom.current().nextInt(0, 1000);
+
+        this.type = "Truck";
+
+        this.speed = 100;
+
+        this.distanceTraveled = 0;
+
+        this.breakdownTurnsLeft = 0;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getDistanceTraveled() {
+        return distanceTraveled;
+    }
+
+
+    public void setBreakdownTurnsLeft(int breakdownHours) { // set from main - if  5% chance is happened: breakdownTurnsLeft= 2
+        this.breakdownTurnsLeft = breakdownHours;
+    }
+
+
+    public void moveForAnHour(){
+        if(breakdownTurnsLeft > 0){
+            breakdownTurnsLeft--;
+            distanceTraveled += 0;
+        } else{
+            distanceTraveled += speed;
+        }
+    }
 }
