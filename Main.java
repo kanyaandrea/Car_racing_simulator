@@ -77,13 +77,17 @@ public class Main {
             }
 
             for (Truck racingTruck: createdTrucks) {
-                boolean roundBreakdown = probabilityOfBreakdown();
-                if (roundBreakdown) {
-                    racingTruck.setBreakdownTurnsLeft(2);
-                } else {
-                    racingTruck.setBreakdownTurnsLeft(0);
+                if (racingTruck.getBreakdownTurnsLeft() == 0) {
+                    boolean roundBreakdown = probabilityOfBreakdown();
+                    if (roundBreakdown) {
+                        racingTruck.setBreakdownTurnsLeft(2); // 2 hours breakdown
+                    } else {
+                        racingTruck.setBreakdownTurnsLeft(0); // no breakdown
+                    }
                 }
                 racingTruck.moveForAnHour();
+                System.out.println(racingTruck.getDistanceTraveled());
+                System.out.println(racingTruck.getBreakdownTurnsLeft());
             }
         }
 

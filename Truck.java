@@ -35,6 +35,9 @@ public class Truck {
         return distanceTraveled;
     }
 
+    public int getBreakdownTurnsLeft() {
+        return breakdownTurnsLeft;
+    }
 
     public void setBreakdownTurnsLeft(int breakdownHours) { // set from main - if  5% chance is happened: breakdownTurnsLeft= 2
         this.breakdownTurnsLeft = breakdownHours;
@@ -43,8 +46,8 @@ public class Truck {
 
     public void moveForAnHour(){
         if(breakdownTurnsLeft > 0){
-            breakdownTurnsLeft--;
             distanceTraveled += 0;
+            breakdownTurnsLeft--;
         } else{
             distanceTraveled += speed;
         }
