@@ -86,8 +86,6 @@ public class Main {
                     }
                 }
                 racingTruck.moveForAnHour();
-                System.out.println(racingTruck.getDistanceTraveled());
-                System.out.println(racingTruck.getBreakdownTurnsLeft());
             }
         }
 
